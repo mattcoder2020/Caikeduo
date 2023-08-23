@@ -1,0 +1,9 @@
+{
+   "/backend/*": {
+    "target": "https://172.17.0.1:44357",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": { "^/backend": "https://172.17.0.1:44357" }
+  }
+}

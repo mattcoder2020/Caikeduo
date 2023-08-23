@@ -1,0 +1,35 @@
+{
+  "culture": "zh-Hans",
+  "texts": {
+    "Menu:Home": "首页",
+    "Welcome": "欢迎",
+    "LongWelcomeMessage": "欢迎来到该应用程序. 这是一个基于ABP框架的启动项目. 有关更多信息, 请访问 abp.io.",
+
+    "Menu:stores": "門店管理",
+    "Menu:storelist": "所有門店",
+    "Actions": "操作",
+    "moreActions": "更多操作",
+    "Close": "關閉",
+    "Delete": "刪除",
+    "Edit": "編輯",
+    "creationDate": "創建日期",
+    "AreYouSure": "Are you sure?",
+    "AreYouSureToDelete": "Are you sure you want to delete this item?",
+
+    "newstore": "新增门店",
+    "editstore": "修改门店",
+    "storeid": "門店編碼",
+    "storestatus": "狀態",
+    "storename": "商戶簡稱",
+    "storefullname": "商戶全稱",
+    "storesuspend": "停用",
+    "paymentconfig": "支付配置",
+    "staffmanage": "店員管理",
+    "passwordreset": "重置密碼",
+    "address": "地址",
+    "phone": "電話",
+    "Enum:StoreStatus.0": "營業中",
+    "Enum:StoreStatus.1": "已關閉"
+  }
+}
+

@@ -1,0 +1,62 @@
+version: "3.0"
+
+services:
+  caikeduopos:
+    image: caikeduopos
+    #network_mode: host
+    container_name: caikeduopos
+    ports:
+      - "443:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      #- ASPNETCORE_URLS=https://+:44357;http://+:4200
+      - ConnectionStrings__Default=Server=172.17.0.1;Port=3306;Database=AccessManagementDB;User Id=sa;Password=1234
+    networks:
+      - Abpnetwork
+    build:
+      context: .
+      dockerfile: dockerfile
+    depends_on:
+      - mysql
+    #restart: on-failure
+  
+  angularapp:
+    image: angularapp
+    container_name: angularapp
+    ports:
+      - "4200:4200"
+    networks:
+      - Abpnetwork
+    depends_on:
+      - caikeduopos
+    environment:
+      - NODE_ENV=production
+    build:
+      context: .
+      dockerfile: dockerfileangular
+  
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment: 
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: AccessManagementDB
+      MYSQL_USER: sa
+      MYSQL_PASSWORD: 1234
+    ports:
+      - "3306:3306"
+    networks:
+      - Abpnetwork
+    
+
+volumes:
+  mysql-data:
+
+networks:
+  Abpnetwork:
+    #external: true
+
+
+  
+

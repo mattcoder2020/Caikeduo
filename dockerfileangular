@@ -1,0 +1,17 @@
+# Stage 1: Build Angular Application
+FROM node:16.20.2-alpine AS angular-build
+WORKDIR /app
+
+# Copy the Angular client source code to the container
+COPY angular/ ./
+
+# Install dependencies and build Angular app
+RUN npm install -g @angular/cli
+RUN npm install
+#RUN npm run build
+RUN ng build 
+
+ENV NODE_OPTIONS="--max-old-space-size=4096"
+#WORKDIR /app/dist/AccessManagment
+CMD ["ng", "serve", "--host", "0.0.0.0", "--configuration", "production", "--proxy-config", "proxy.conf.json", "--disable-host-check"]
+

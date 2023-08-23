@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  caikdduopos.httpapi.host:
+    image: ${DOCKER_REGISTRY-}caikdduoposhttpapihost
+    build:
+      context: .
+      dockerfile: src/caikdduopos.HttpApi.Host/Dockerfile

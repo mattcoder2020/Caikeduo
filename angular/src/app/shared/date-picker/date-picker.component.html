@@ -1,0 +1,11 @@
+<div class="input-group">
+          <input [(ngModel)] ="fromdate" #datepickerFrom="ngbDatepicker" class="form-control" id="fromdate" 
+              ngbDatepicker (click)="datepickerFrom.toggle()" 
+              ngbDatepicker (dateSelect)="emitDateRangeChange()"
+              placeholder="请输入开始日期"/> 
+            <span class="input-group-addon">&nbsp; &nbsp;&nbsp; </span>
+           <input [(ngModel)] ="todate" #datepickerTo="ngbDatepicker" class="form-control" id="todate" 
+              ngbDatepicker (click)="datepickerTo.toggle()" 
+              ngbDatepicker (dateSelect)="emitDateRangeChange()"
+              placeholder="请输入结束日期"/> 
+ </div>
