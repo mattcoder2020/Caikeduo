@@ -4,6 +4,9 @@ The application adds entity and services that inherit ABP domain and services th
 In addition, the ABP cli allows developer to use commands to generate Typecript based entities and Angular proxy code base on the derived ABP domain, frontend can make the backend calls base on these auto generated code that will save half of work needed to develop frontend.
 
 Instruction for Deployment: Everything are dockerized!!
+
 Prerequisite: docker and docker compose
+
 in Linux environment, run installupgrade.sh to install the application and db docker containers
+
 Navigate to http://localhost:4200 and start to navigate the web site.
