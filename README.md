@@ -7,6 +7,8 @@ Instruction for Deployment: Everything are dockerized!!
 
 Prerequisite: docker and docker compose
 
-in Linux environment, run installupgrade.sh to install the application and db docker containers
+in Linux environment, 
+RUN chmod u+rwx installupgrade.sh to provide the permission.
+RUN installupgrade.sh to install the application and db docker containers
 
 Navigate to http://localhost:4200 and start to navigate the web site.
