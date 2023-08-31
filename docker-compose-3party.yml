@@ -6,7 +6,7 @@ services:
     #network_mode: host
     container_name: caikeduopos
     ports:
-      - "443:80"
+      - "44357:80"
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       #- ASPNETCORE_URLS=https://+:44357;http://+:4200
