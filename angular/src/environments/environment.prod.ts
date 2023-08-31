@@ -10,7 +10,7 @@ export const environment = {
     logoUrl: '',
   },
   oAuthConfig: {
-    issuer: 'https://172.17.0.1:44357/',
+    issuer: 'http://172.17.0.1:44357/',
     redirectUri: baseUrl,
     clientId: 'AccessManagment_App',
     responseType: 'code',
