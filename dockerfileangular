@@ -6,7 +6,7 @@ WORKDIR /app
 COPY angular/ ./
 
 # Install dependencies and build Angular app
-RUN npm install -g @angular/cli
+RUN npm install -g @angular/cli@16.0.0
 RUN npm install
 #RUN npm run build
 RUN ng build 
