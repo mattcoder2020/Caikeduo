@@ -16,7 +16,7 @@
     <div class="container border p-3">
       <div class="row align-items-center">
         <div class="col-md-1">
-          <label>创建日期</label>
+          <label> {{ 'creationDate' | abpLocalization }}</label>
         </div>
         <!-- <div class="col-md-2">
           <input [(ngModel)] ="queryDto.creationDate" #datepicker="ngbDatepicker" class="form-control" id="creationstart" 
@@ -26,20 +26,20 @@
           <datepicker-range-popup [(fromdate)]="queryDto.creationDateFrom" [(todate)]="queryDto.creationDateTo" (dateRangeChanged) = onDateRangeChanged($event)></datepicker-range-popup>
         </div>
         <div class="col-md-1">
-          <label>商户名称</label>
+          <label>{{ 'storename' | abpLocalization }}</label>
         </div>
         <div class="col-md-2">
           <input [(ngModel)] ="queryDto.name"  type="text" class="form-control" placeholder="请输入商户号">
         </div>
         <div class="col-md-1">
-          <label>门店编码</label>
+          <label>{{ 'storeid' | abpLocalization }}</label>
         </div>
         <div class="col-md-2">
           <input [(ngModel)] ="queryDto.id" type="text" class="form-control" placeholder="请输入门店编码">
         </div>
         <div class="col-md-2">
-          <button class="btn btn-primary btn-sm mr-2" (click)="Query()">查找</button>
-          <button class="btn btn-secondary btn-sm" (click)="ResetQuery()">重置</button>
+          <button class="btn btn-primary btn-sm mr-2" (click)="Query()">{{ 'creationDate' | abpLocalization }}{{ 'find' | abpLocalization }}</button>
+          <button class="btn btn-secondary btn-sm" (click)="ResetQuery()">{{ 'creationDate' | abpLocalization }}{{ 'reset' | abpLocalization }}</button>
         </div>
         
       </div>

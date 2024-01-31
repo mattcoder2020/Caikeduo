@@ -4,23 +4,38 @@
     "Menu:Home": "Home",
     "Welcome": "Welcome",
     "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io.",
+
     "Menu:stores": "Stores",
     "Menu:storelist": "View Stores",
     "Actions": "Actions",
+    "moreActions": "More Actions",
     "Close": "Close",
     "Delete": "Delete",
     "Edit": "Edit",
+    "creationDate": "Create Date",
+    "AreYouSure": "Are you sure?",
+    "AreYouSureToDelete": "Are you sure you want to delete this item?",
 
+    "newstore": "New Store",
+    "editstore": "Modify Store",
     "storeid": "Store Id",
     "storestatus": "Operation Status",
+    "storename": "Store Name",
+    "storefullname": "Store Full Name",
+    "storesuspend": "Suspend",
+    "paymentconfig": "Payment Config",
+    "staffmanage": "Staff Manage",
+    "passwordreset": "Password Reset",
+    "address": "Address",
+    "phone": "Phone",
+    "Enum:StoreStatus.0": "Opening",
+    "Enum:StoreStatus.1": "Closed",
+
     "Name": "Name",
     "fullname": "Full Name",
     "Price": "Price",
-    "CreationTime": "Creation time",
-    "AreYouSure": "Are you sure?",
-    "AreYouSureToDelete": "Are you sure you want to delete this item?",
-    "Enum:StoreStatus.0": "Opening",
-    "Enum:StoreStatus.1": "Closed"
+    "CreationTime": "Creation time"
+
   }
 }
 
