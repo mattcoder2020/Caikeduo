@@ -1,6 +1,7 @@
 import { RoutesService, eLayoutType } from '@abp/ng.core';
 import { APP_INITIALIZER } from '@angular/core';
 
+
 export const APP_ROUTE_PROVIDER = [
   { provide: APP_INITIALIZER, useFactory: configureRoutes, deps: [RoutesService], multi: true },
 ];
@@ -17,9 +18,10 @@ function configureRoutes(routesService: RoutesService) {
       },
       {
         path: '/allstores',
-        name: '::Menu:stores',
+        name: '::Menu:stores',   
         iconClass: 'fas fa-store',
         order: 2,
+        requiredPolicy: 'StoreManagement',
         layout: eLayoutType.application,
       },
       {
@@ -30,5 +32,6 @@ function configureRoutes(routesService: RoutesService) {
         layout: eLayoutType.application,
       }
     ]);
+    
   };
 }
