@@ -3,6 +3,8 @@ using Abp.Linq.Extensions;
 using caikdduopos.AggregateRoots;
 using caikdduopos.ApplicatinServices;
 using caikdduopos.Dto;
+using caikdduopos.Permissions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,6 +17,7 @@ using Volo.Abp.Linq;
 
 namespace caikdduopos.ApplicationServices
 {
+    [Authorize(AccessManagmentPermissions.StoreGroupName + ".Creation")]
     public class StoreApplicationService:CrudAppService<
         Store,
         StoreDto,

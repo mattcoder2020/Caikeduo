@@ -34,7 +34,12 @@
     "Name": "Name",
     "fullname": "Full Name",
     "Price": "Price",
-    "CreationTime": "Creation time"
+    "CreationTime": "Creation time",
+
+    "find": "Find",
+    "reset": "Reset"
+
+
 
   }
 }
