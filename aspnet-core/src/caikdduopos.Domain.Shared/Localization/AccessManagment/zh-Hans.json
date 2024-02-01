@@ -37,7 +37,12 @@
     "CreationTime": "创建时间",
 
     "find": "查询",
-    "reset": "重置"
+    "reset": "重置",
+
+    "StoreManagement": "门店管理",
+    "StoreManagement.Creation": "创建",
+    "StoreManagement.Edit": "编辑",
+    "StoreManagement.View": "查看"
 
 
   }

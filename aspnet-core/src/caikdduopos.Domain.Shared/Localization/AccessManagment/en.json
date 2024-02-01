@@ -36,9 +36,16 @@
     "Price": "Price",
     "CreationTime": "Creation time",
 
-    "find": "Find",
-    "reset": "Reset"
 
+
+    "find": "Find",
+    "reset": "Reset",
+
+    "StoreManagement": "Store Management",
+    "StoreManagement.Creation": "Create",
+    "StoreManagement.Edit": "Edit",
+    "StoreManagement.View": "View"
+   
 
 
   }

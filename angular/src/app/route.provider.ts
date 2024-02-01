@@ -21,7 +21,7 @@ function configureRoutes(routesService: RoutesService) {
         name: '::Menu:stores',   
         iconClass: 'fas fa-store',
         order: 2,
-        requiredPolicy: 'StoreManagement',
+        //requiredPolicy: 'StoreManagement.View',
         layout: eLayoutType.application,
       },
       {

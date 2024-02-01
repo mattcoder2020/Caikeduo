@@ -29,13 +29,17 @@ public class StorePermissionDefinitionProvider : PermissionDefinitionProvider
     public override void Define(IPermissionDefinitionContext context)
     {
         //var myGroup = context.AddGroup(AccessManagmentPermissions.StoreGroupName);
-        var myGroup = context.AddGroup(AccessManagmentPermissions.StoreGroupName, L(AccessManagmentPermissions.StoreGroupName));
+        var myGroup = context.AddGroup("StoreManagement", L("StoreManagement"));
         myGroup.AddPermission(
-        AccessManagmentPermissions.StoreGroupName + ".Creation",
-        L(AccessManagmentPermissions.StoreGroupName + ".Creation"));
+        "StoreManagement.Creation",
+        L("StoreManagement.Creation"));
         myGroup.AddPermission(
-         AccessManagmentPermissions.StoreGroupName + ".Deletion",
-        L(AccessManagmentPermissions.StoreGroupName + ".Deletion"));
+         "StoreManagement.Edit",
+        L("StoreManagement.Edit"));
+        myGroup.AddPermission(
+        "StoreManagement.View",
+        L("StoreManagement.View"));
+
         //Define your own permissions here. Example:
         //myGroup.AddPermission(AccessManagmentPermissions.MyPermission1, L("Permission:MyPermission1"));
     }

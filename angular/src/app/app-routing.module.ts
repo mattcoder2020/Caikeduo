@@ -1,3 +1,4 @@
+import { PermissionGuard } from '@abp/ng.core';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -25,7 +26,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('@abp/ng.setting-management').then(m => m.SettingManagementModule.forLazy()),
   },
-  { path: 'storelist', loadChildren: () => import('./store/store.module').then(m => m.StoreModule) },
+  { path: 'storelist', 
+    // canActivate: [PermissionGuard],
+    //  data: {
+    //   requiredPolicy: 'StoreManagement.View', // policy key for your component
+    //     },
+     loadChildren: () => import('./store/store.module').then(m => m.StoreModule) },
 ];
 
 @NgModule({

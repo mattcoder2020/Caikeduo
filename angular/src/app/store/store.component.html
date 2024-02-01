@@ -7,7 +7,7 @@
         </h5>
       </div>
       <div id="2div" class="col-6 d-flex justify-content-end"> 
-        <button id="create" class="btn btn-primary" type="button" (click)="createStore()">
+        <button *abpPermission="'StoreManagement.Creation'" id="create" class="btn btn-primary" type="button" (click)="createStore()">
           <i class="fa fa-plus me-1"></i>
           <span>{{ '::newstore' | abpLocalization }}</span>
         </button>
@@ -16,7 +16,7 @@
     <div class="container border p-3">
       <div class="row align-items-center">
         <div class="col-md-1">
-          <label> {{ 'creationDate' | abpLocalization }}</label>
+          <label> {{ '::creationDate' | abpLocalization }}</label>
         </div>
         <!-- <div class="col-md-2">
           <input [(ngModel)] ="queryDto.creationDate" #datepicker="ngbDatepicker" class="form-control" id="creationstart" 
@@ -26,20 +26,20 @@
           <datepicker-range-popup [(fromdate)]="queryDto.creationDateFrom" [(todate)]="queryDto.creationDateTo" (dateRangeChanged) = onDateRangeChanged($event)></datepicker-range-popup>
         </div>
         <div class="col-md-1">
-          <label>{{ 'storename' | abpLocalization }}</label>
+          <label>{{ '::storename' | abpLocalization }}</label>
         </div>
         <div class="col-md-2">
           <input [(ngModel)] ="queryDto.name"  type="text" class="form-control" placeholder="请输入商户号">
         </div>
         <div class="col-md-1">
-          <label>{{ 'storeid' | abpLocalization }}</label>
+          <label>{{ '::storeid' | abpLocalization }}</label>
         </div>
         <div class="col-md-2">
           <input [(ngModel)] ="queryDto.id" type="text" class="form-control" placeholder="请输入门店编码">
         </div>
         <div class="col-md-2">
-          <button class="btn btn-primary btn-sm mr-2" (click)="Query()">{{ 'find' | abpLocalization }}</button> &nbsp;
-          <button class="btn btn-secondary btn-sm" (click)="ResetQuery()">{{ 'reset' | abpLocalization }}</button>
+          <button class="btn btn-primary btn-sm mr-2" (click)="Query()">{{ '::find' | abpLocalization }}</button> &nbsp;
+          <button class="btn btn-secondary btn-sm" (click)="ResetQuery()">{{ '::reset' | abpLocalization }}</button>
         </div>
         
       </div>
@@ -62,10 +62,10 @@
     <ngx-datatable-column [name]="'::Actions' | abpLocalization" [maxWidth]="250" [sortable]="false">
       <ng-template let-row="row" ngx-datatable-cell-template>
         <div class="btn-group mr-4" role="group">
-          <button class="btn btn-sm  text-black mr-2" (click)="editStore(row.id)">
+          <button class="btn btn-sm  text-black mr-2" (click)="editStore(row.id)" *abpPermission="'StoreManagement.Edit'">
             {{ '::Edit' | abpLocalization }}
           </button>
-          <button class="btn btn-sm  text-black" (click)="suspendStore(row.id)">
+          <button class="btn btn-sm  text-black" (click)="suspendStore(row.id)" *abpPermission="'StoreManagement.Edit'">
             {{ '::storesuspend' | abpLocalization }}
           </button>
         </div>
@@ -75,13 +75,13 @@
                   <i class="fa fa-cog me-1"></i>{{ '::moreActions' | abpLocalization }}
               </button>
               <div ngbDropdownMenu>
-                  <button  ngbDropdownItem (click)="editStore(row.id)">
+                  <button  ngbDropdownItem (click)="editStore(row.id)" *abpPermission="'StoreManagement.Edit'">
                       {{ '::paymentconfig' | abpLocalization }}
                   </button>
                   <button  ngbDropdownItem (click)="deleteStore(row.id)">
                       {{ '::staffmanage' | abpLocalization }}
                   </button>
-                  <button  ngbDropdownItem (click)="deleteStore(row.id)">
+                  <button  ngbDropdownItem (click)="deleteStore(row.id)" *abpPermission="'StoreManagement.Edit'">
                     {{ '::passwordreset' | abpLocalization }}
                 </button>
               </div>
