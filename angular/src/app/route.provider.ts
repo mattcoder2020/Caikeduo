@@ -31,6 +31,46 @@ function configureRoutes(routesService: RoutesService) {
         iconClass: 'fas fa-store',
         layout: eLayoutType.application,
       }
+      ,
+      {
+        path: '/allproduct',
+        name: '::Menu:product',   
+        iconClass: 'fas fa-server',
+        order: 3,
+        //requiredPolicy: 'StoreManagement.View',
+        layout: eLayoutType.application,
+      },
+      {
+        path: '/product/productlist',
+        name: '::Menu:productlist',
+        parentName: '::Menu:product',
+        iconClass: 'fas fa-store',
+        layout: eLayoutType.application,
+      }
+      ,
+      {
+        path: '/product/producttypelist',
+        name: '::Menu:producttypelist',
+        parentName: '::Menu:product',
+        iconClass: 'fas fa-store',
+        layout: eLayoutType.application,
+      }
+      ,
+      {
+        path: '',
+        name: '::Menu:paymentmethod',   
+        iconClass: 'fas fa-store',
+        order: 4,
+        //requiredPolicy: 'StoreManagement.View',
+        layout: eLayoutType.application,
+      },
+      {
+        path: '/paymentmethodlist',
+        name: '::Menu:paymentmethodlist',
+        parentName: '::Menu:paymentmethod',
+        iconClass: 'fas fa-store',
+        layout: eLayoutType.application,
+      }
     ]);
     
   };

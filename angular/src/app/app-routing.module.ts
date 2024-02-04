@@ -32,6 +32,9 @@ const routes: Routes = [
     //   requiredPolicy: 'StoreManagement.View', // policy key for your component
     //     },
      loadChildren: () => import('./store/store.module').then(m => m.StoreModule) },
+  { path: 'product', loadChildren: () => import('./product/product.module').then(m => m.ProductModule) },
+  { path: 'sales', loadChildren: () => import('./sales/sales.module').then(m => m.SalesModule) },
+  { path: 'staff', loadChildren: () => import('./staff/staff.module').then(m => m.StaffModule) },
 ];
 
 @NgModule({

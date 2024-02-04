@@ -1,7 +1,7 @@
 import { RestService, Rest } from '@abp/ng.core';
 import type { ListResultDto, PagedResultDto } from '@abp/ng.core';
 import { Injectable } from '@angular/core';
-import type { GetIdentityUsersInput, IdentityRoleDto, IdentityUser, IdentityUserCreateDto, IdentityUserDto, IdentityUserUpdateDto, IdentityUserUpdateRolesDto } from '../volo/abp/identity/models';
+import type { GetIdentityUsersInput, IdentityRoleDto, IdentityUser, IdentityUserCreateDto, IdentityUserDto, IdentityUserUpdateDto, IdentityUserUpdateRolesDto } from '../../volo/abp/identity/models';
 
 @Injectable({
   providedIn: 'root',

@@ -45,7 +45,7 @@ namespace caikdduopos.ApplicationSeedContributors
                 Status = StoreStatus.Closed
             }
             // Add more store entries if needed
-        };
+            };
 
             await _storeRepository.InsertManyAsync(stores, autoSave: true);
         }

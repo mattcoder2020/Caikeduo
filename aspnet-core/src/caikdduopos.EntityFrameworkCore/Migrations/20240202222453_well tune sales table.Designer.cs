@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Volo.Abp.EntityFrameworkCore;
 using caikdduopos.EntityFrameworkCore;
@@ -11,9 +12,11 @@ using caikdduopos.EntityFrameworkCore;
 namespace caikdduopos.Migrations
 {
     [DbContext(typeof(AccessManagmentDbContext))]
-    partial class AccessManagmentDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240202222453_well tune sales table")]
+    partial class welltunesalestable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1858,29 +1861,9 @@ namespace caikdduopos.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("double");
 
-                    b.Property<int>("ProductTypeId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("ProductTypeId");
 
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("caikdduopos.Entity.ProductType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ProductTypes");
                 });
 
             modelBuilder.Entity("caikdduopos.Entity.Sales", b =>
@@ -2116,17 +2099,6 @@ namespace caikdduopos.Migrations
                     b.Navigation("Sales");
 
                     b.Navigation("SalesRep");
-                });
-
-            modelBuilder.Entity("caikdduopos.Entity.Product", b =>
-                {
-                    b.HasOne("caikdduopos.Entity.ProductType", "ProductType")
-                        .WithMany()
-                        .HasForeignKey("ProductTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ProductType");
                 });
 
             modelBuilder.Entity("caikdduopos.Entity.Sales", b =>

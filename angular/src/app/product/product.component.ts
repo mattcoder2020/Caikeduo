@@ -8,14 +8,14 @@ import { NgbDateNativeAdapter, NgbDateAdapter } from '@ng-bootstrap/ng-bootstrap
 import { storeStatusOptions } from '@proxy/caikdduopos/enums';
 import {NgbdDatepickerRangePopup} from '../shared/date-picker/date-picker.component';
 
-
 @Component({
-  selector: 'app-store',
-  templateUrl: './store.component.html',
-  styleUrls: ['./store.component.scss'],
+  selector: 'app-product',
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.scss'],
   providers: [ListService, { provide: NgbDateAdapter, useClass: NgbDateNativeAdapter }],
+
 })
-export class StoreComponent implements OnInit{
+export class ProductComponent implements OnInit{
   stores = { items: [], totalCount: 0 } as PagedResultDto<StoreDto>;
   form: FormGroup; // add this line
 
@@ -111,5 +111,5 @@ export class StoreComponent implements OnInit{
   ResetQuery(){
     this.queryDto = {} as StoreQueryDto;
   }
-}
 
+}

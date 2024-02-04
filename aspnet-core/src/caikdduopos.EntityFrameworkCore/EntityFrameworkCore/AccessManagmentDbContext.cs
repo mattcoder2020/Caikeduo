@@ -1,4 +1,5 @@
 ﻿using caikdduopos.AggregateRoots;
+using caikdduopos.Entity;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
@@ -57,6 +58,18 @@ public class AccessManagmentDbContext :
 
     #region Entities from Application
     public DbSet<Store> Stores { get; set; }
+    public DbSet<Cashier> Cashiers { get; set; }
+    public DbSet<Sales> Sales { get; set; }
+    public DbSet<SalesRep> SalesReps { get; set; }
+    public DbSet<SalesType> SalesTypes { get; set; }
+    public DbSet<MerchandiseSales> MerchandiseSales { get; set; }
+    public DbSet<Member> Members { get; set; }
+    public DbSet<PaymentMethod> PaymentMethods { get; set; }
+    public DbSet<Product> Products { get; set; }
+    public DbSet<ProductType> ProductTypes { get; set; }
+
+
+
     #endregion
 
 

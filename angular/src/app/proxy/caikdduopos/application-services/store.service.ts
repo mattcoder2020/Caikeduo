@@ -1,8 +1,7 @@
 import { RestService, Rest } from '@abp/ng.core';
 import type { PagedAndSortedResultRequestDto, PagedResultDto } from '@abp/ng.core';
 import { Injectable } from '@angular/core';
-import type { CreateStoreDto, StoreDto, StoreQueryDto } from '../dto/models';
-import { StoreStatus } from '@proxy/enums';
+import type { CreateStoreDto, StoreDto, StoreQueryDto } from '@proxy/caikdduopos/dto/models';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +9,18 @@ import { StoreStatus } from '@proxy/enums';
 export class StoreService {
   apiName = 'Default';
   
+  covertStoreDto = (storedto: StoreDto ) =>
+  {
+       let dto= {} as CreateStoreDto;
+       dto.address = storedto.address;
+       dto.creationDate = storedto.creationTime;
+       dto.fullName = storedto.fullName;
+       dto.name = storedto.name;
+       dto.phone = storedto.phone
+       dto.status = storedto.status;
+       return dto;
 
+  };
   create = (input: CreateStoreDto, config?: Partial<Rest.Config>) =>
     this.restService.request<any, StoreDto>({
       method: 'POST',
@@ -45,6 +55,15 @@ export class StoreService {
     { apiName: this.apiName,...config });
   
 
+  queryByFiltrationByQ = (q: StoreQueryDto, config?: Partial<Rest.Config>) =>
+    this.restService.request<any, PagedResultDto<StoreDto>>({
+      method: 'POST',
+      url: '/api/app/store/query-by-filtration',
+      body: q,
+    },
+    { apiName: this.apiName,...config });
+  
+
   update = (id: string, input: CreateStoreDto, config?: Partial<Rest.Config>) =>
     this.restService.request<any, StoreDto>({
       method: 'PUT',
@@ -53,39 +72,5 @@ export class StoreService {
     },
     { apiName: this.apiName,...config });
 
-  suspend = (id: string, config?: Partial<Rest.Config>) =>
-    {
-      let input: CreateStoreDto;
-      let temp = {} as StoreDto;
-      
-      this.get(id).subscribe((store) => temp = store);
-      input = this.covertStoreDto(temp);
-      input.status = StoreStatus.Closed;
-      return this.update(id, input, config);
-    };
-
-  covertStoreDto = (storedto: StoreDto ) =>
-  {
-       let dto= {} as CreateStoreDto;
-       dto.address = storedto.address;
-       dto.creationTime = storedto.creationTime;
-       dto.fullName = storedto.fullName;
-       dto.name = storedto.name;
-       dto.phone = storedto.phone
-       dto.status = storedto.status;
-       return dto;
-
-  };
-
-  query = (queryDto : StoreQueryDto, config?: Partial<Rest.Config>) => {
-    return this.restService.request<any, PagedResultDto<StoreDto>>({
-      method: 'POST',
-      url: '/api/app/store/query-by-filtration',
-      body: queryDto,
-    },
-    { apiName: this.apiName,...config });
-  }
-
-    
   constructor(private restService: RestService) {}
 }
