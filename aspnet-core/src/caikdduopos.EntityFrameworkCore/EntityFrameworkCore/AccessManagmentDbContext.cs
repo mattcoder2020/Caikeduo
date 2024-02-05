@@ -107,5 +107,10 @@ public class AccessManagmentDbContext :
 
             //...
         });
+        builder.Entity<Product>(b =>
+        {
+            b.ConfigureByConvention(); //auto configure for the base class props
+        });
     }
+
 }

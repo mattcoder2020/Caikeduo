@@ -1,7 +1,8 @@
 import { RestService, Rest } from '@abp/ng.core';
 import type { PagedAndSortedResultRequestDto, PagedResultDto } from '@abp/ng.core';
 import { Injectable } from '@angular/core';
-import type { CreateStoreDto, StoreDto, StoreQueryDto } from '@proxy/caikdduopos/dto/models';
+import type { CreateStoreDto } from '../dto/create/models';
+import type { StoreDto, StoreQueryDTO } from '../dto/models';
 
 @Injectable({
   providedIn: 'root',
@@ -9,18 +10,7 @@ import type { CreateStoreDto, StoreDto, StoreQueryDto } from '@proxy/caikdduopos
 export class StoreService {
   apiName = 'Default';
   
-  covertStoreDto = (storedto: StoreDto ) =>
-  {
-       let dto= {} as CreateStoreDto;
-       dto.address = storedto.address;
-       dto.creationDate = storedto.creationTime;
-       dto.fullName = storedto.fullName;
-       dto.name = storedto.name;
-       dto.phone = storedto.phone
-       dto.status = storedto.status;
-       return dto;
 
-  };
   create = (input: CreateStoreDto, config?: Partial<Rest.Config>) =>
     this.restService.request<any, StoreDto>({
       method: 'POST',
@@ -55,7 +45,7 @@ export class StoreService {
     { apiName: this.apiName,...config });
   
 
-  queryByFiltrationByQ = (q: StoreQueryDto, config?: Partial<Rest.Config>) =>
+  queryByFiltrationByQ = (q: StoreQueryDTO, config?: Partial<Rest.Config>) =>
     this.restService.request<any, PagedResultDto<StoreDto>>({
       method: 'POST',
       url: '/api/app/store/query-by-filtration',

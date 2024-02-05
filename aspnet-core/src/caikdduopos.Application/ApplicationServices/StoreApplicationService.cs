@@ -3,6 +3,7 @@ using Abp.Linq.Extensions;
 using caikdduopos.AggregateRoots;
 using caikdduopos.ApplicatinServices;
 using caikdduopos.Dto;
+using caikdduopos.Dto.Create;
 using caikdduopos.Permissions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;

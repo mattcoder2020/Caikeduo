@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { StoreService } from '@proxy/caikdduopos/application-services/store.service';
+import { ProductService } from '@proxy/caikdduopos/application-services/product.service';
+import { ProductTypeService } from '@proxy/caikdduopos/application-services/product-type.service';
 import { ListService, PagedResultDto } from '@abp/ng.core';
-import { StoreDto, StoreQueryDto } from '@proxy/caikdduopos/dto/models';
+import { ProductDto, ProductTypeDto, StoreDto, StoreQueryDTO } from '@proxy/caikdduopos/dto/models';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ConfirmationService, Confirmation } from '@abp/ng.theme.shared'; 
 import { NgbDateNativeAdapter, NgbDateAdapter } from '@ng-bootstrap/ng-bootstrap';
@@ -16,56 +17,72 @@ import {NgbdDatepickerRangePopup} from '../shared/date-picker/date-picker.compon
 
 })
 export class ProductComponent implements OnInit{
-  stores = { items: [], totalCount: 0 } as PagedResultDto<StoreDto>;
+  Products = { items: [], totalCount: 0 } as PagedResultDto<ProductDto>;
+  ProductTypes = { items: [], totalCount: 0 } as PagedResultDto<ProductTypeDto>;
   form: FormGroup; // add this line
 
   // add bookTypes as a list of BookType enum members
-  StatusTypes = storeStatusOptions;
-  selectedStore = {} as StoreDto;
-  queryDto = {} as StoreQueryDto;
+  //StatusTypes = ProductStatusOptions;
+  selectedProduct = {} as ProductDto;
+  //queryDto = {} as ProductQueryDto;
 
 
   isModalOpen = false;
-  constructor(public readonly list: ListService, private storeService: StoreService, private fb: FormBuilder, private confirmation: ConfirmationService) 
+  constructor(public readonly list: ListService, 
+    private ProductService: ProductService, 
+    private ProductTypeService: ProductTypeService,
+    private fb: FormBuilder, 
+    private confirmation: ConfirmationService) 
   {}
 
   ngOnInit() {
-    const storeStreamCreator = (query) => this.storeService.getList(query);
+    const ProductStreamCreator = (query) => this.ProductService.getProductsWithDetail(query);
 
-    this.list.hookToQuery(storeStreamCreator).subscribe((response) => {
-      this.stores = response;
+    this.list.hookToQuery(ProductStreamCreator).subscribe((response) => {
+      this.Products = response;
+    });
+
+    const ProductTypeStreamCreator = (query) => this.ProductTypeService.getList(query);
+
+    this.list.hookToQuery(ProductTypeStreamCreator).subscribe((response) => {
+      this.ProductTypes = response;
     });
   }
 
-  createStore() {
+  createProduct() {
+    this.selectedProduct = {} as ProductDto;
     this.buildForm(); // add this line
-    this.selectedStore = {} as StoreDto;
+    
     this.isModalOpen = true;
   }
 
-  editStore(id: string) {
-    this.storeService.get(id).subscribe((store) => {
-      this.selectedStore= store;
+  editProduct(id: number) {
+    this.ProductService.get(id).subscribe((Product) => {
+      this.selectedProduct= Product;
       this.buildForm();
       this.isModalOpen = true;
     });
   }
 
-  suspendStore(id: string) {
-    this.storeService.get(id).subscribe((store) => {
-      this.selectedStore= store;})
-      this.selectedStore.status = 1; 
-
-    const request = this.storeService.update(this.selectedStore.id, this.storeService.covertStoreDto(this.selectedStore))
-    request.subscribe(() => {
-        this.list.get();
-    });
+  getProductTypeName(productTypeId: number): string {
+    const productType = this.ProductTypes.items.find(type => type.id === productTypeId);
+    return productType ? productType.name : 'Unknown';
   }
+  // suspendProduct(id: string) {
+  //   this.ProductService.get(id).subscribe((Product) => {
+  //     this.selectedProduct= Product;})
+  //     this.selectedProduct.status = 1; 
 
-  deleteStore(id: string) {
+  //   const request = this.ProductService.update(this.selectedProduct.id, this.ProductService.covertProductDto(this.selectedProduct))
+  //   request.subscribe(() => {
+  //       this.list.get();
+  //   });
+  // }
+
+  deleteProduct(id: number) {
     this.confirmation.warn('::AreYouSureToDelete', 'AbpAccount::AreYouSure').subscribe((status) => {
       if (status === Confirmation.Status.confirm) {
-        this.storeService.delete(id).subscribe(() => this.list.get());
+        this.ProductService.delete(id).subscribe(() => this.list.get());
       }
     });
   }
@@ -73,12 +90,14 @@ export class ProductComponent implements OnInit{
   // add buildForm method
   buildForm() {
     this.form = this.fb.group({
-      name: [this.selectedStore.name|| null, Validators.required],
-      fullname: [this.selectedStore.fullName||null, Validators.required],
-      phone: [this.selectedStore.phone||null, Validators.required],
-      address: [this.selectedStore.address||null, Validators.required],
-      status:[this.selectedStore.status||null, Validators.required]
-    });
+      id: [this.selectedProduct.id|| null],
+      name: [this.selectedProduct.name|| null, Validators.required],
+      price: [this.selectedProduct.price || null, Validators.required],
+      description: [this.selectedProduct.description || null, Validators.required],
+      cost: [this.selectedProduct.cost || null, Validators.required],
+      productTypeId: [this.selectedProduct?.productType?.id || null],
+
+         });
   }
 
   // add save method
@@ -86,9 +105,9 @@ export class ProductComponent implements OnInit{
     if (this.form.invalid) {
       return;
     }
-    const request = this.selectedStore.id
-    ? this.storeService.update(this.selectedStore.id, this.form.value)
-    : this.storeService.create(this.form.value);
+    const request = this.selectedProduct.id
+    ? this.ProductService.update(this.selectedProduct.id, this.form.value)
+    : this.ProductService.create(this.form.value);
 
     request.subscribe(() => {
     this.isModalOpen = false;
@@ -97,19 +116,19 @@ export class ProductComponent implements OnInit{
     });
    
   }
-  onDateRangeChanged(event: { from: any, to: any }) {
-    this.queryDto.creationDateFrom = event.from;
-    this.queryDto.creationDateTo = event.to;
-  }
-  Query(){
-    const request = this.storeService.queryByFiltrationByQ(this.queryDto);
-    request.subscribe((data) => {
-      this.stores = data;
-    });
-  }
+  // onDateRangeChanged(event: { from: any, to: any }) {
+  //   this.queryDto.creationDateFrom = event.from;
+  //   this.queryDto.creationDateTo = event.to;
+  // }
+  // Query(){
+  //   const request = this.ProductService.queryByFiltrationByQ(this.queryDto);
+  //   request.subscribe((data) => {
+  //     this.Products = data;
+  //   });
+  // }
 
-  ResetQuery(){
-    this.queryDto = {} as StoreQueryDto;
-  }
+  // ResetQuery(){
+  //   this.queryDto = {} as ProductQueryDto;
+  // }
 
 }

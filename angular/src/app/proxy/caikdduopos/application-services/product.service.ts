@@ -1,6 +1,7 @@
 import { RestService, Rest } from '@abp/ng.core';
 import type { PagedAndSortedResultRequestDto, PagedResultDto } from '@abp/ng.core';
 import { Injectable } from '@angular/core';
+import type { CreateProductDto } from '../dto/create/models';
 import type { ProductDto } from '../dto/models';
 
 @Injectable({
@@ -10,7 +11,7 @@ export class ProductService {
   apiName = 'Default';
   
 
-  create = (input: ProductDto, config?: Partial<Rest.Config>) =>
+  create = (input: CreateProductDto, config?: Partial<Rest.Config>) =>
     this.restService.request<any, ProductDto>({
       method: 'POST',
       url: '/api/app/product',
@@ -44,7 +45,15 @@ export class ProductService {
     { apiName: this.apiName,...config });
   
 
-  update = (id: number, input: ProductDto, config?: Partial<Rest.Config>) =>
+  getProductsWithDetail = (config?: Partial<Rest.Config>) =>
+    this.restService.request<any, PagedResultDto<ProductDto>>({
+      method: 'GET',
+      url: '/api/app/product/products-with-detail',
+    },
+    { apiName: this.apiName,...config });
+  
+
+  update = (id: number, input: CreateProductDto, config?: Partial<Rest.Config>) =>
     this.restService.request<any, ProductDto>({
       method: 'PUT',
       url: `/api/app/product/${id}`,

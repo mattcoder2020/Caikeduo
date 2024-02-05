@@ -1,4 +1,5 @@
-﻿using System;
+﻿using caikdduopos.Dto.Create;
+using System;
 using Volo.Abp.Application.Dtos;
 
 namespace caikdduopos.Dto
@@ -8,7 +9,7 @@ namespace caikdduopos.Dto
         public Guid SalesId { get; set; }
         public CashierDto Cashier { get; set; }
         public SalesRepDto SalesRep { get; set; }
-        public ProductDto Product { get; set; }
+        public CreateProductDto Product { get; set; }
         public SalesDto Sales { get; set; }
         //public Guid CashierId { get; set; }
         //public Guid SalesRepId { get; set; }

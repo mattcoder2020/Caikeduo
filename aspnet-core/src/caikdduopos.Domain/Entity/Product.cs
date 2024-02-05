@@ -14,5 +14,8 @@ namespace caikdduopos.Entity
         public double Cost { get; set; }
         public string Description { get; set; }
         public ProductType ProductType { get; set; }
+        public int ProductTypeId { get; set; }
+        //public int ProductTypeId { get; set; }
+
     }
 }

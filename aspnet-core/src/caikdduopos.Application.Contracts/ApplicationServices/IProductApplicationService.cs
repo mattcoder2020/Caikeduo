@@ -1,4 +1,5 @@
 ﻿using caikdduopos.Dto;
+using caikdduopos.Dto.Create;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,9 @@ using Volo.Abp.Application.Services;
 
 namespace caikdduopos.ApplicationServices
 {
-    public interface IProductApplicationService :IApplicationService
+    public interface IProductApplicationService : ICrudAppService
+        <ProductDto, int, PagedAndSortedResultRequestDto, CreateProductDto>
     {
-        Task<PagedResultDto<ProductDto>> GetListAsync(PagedAndSortedResultRequestDto input);
+       
     }
 }

@@ -58,17 +58,17 @@ function configureRoutes(routesService: RoutesService) {
       ,
       {
         path: '',
-        name: '::Menu:paymentmethod',   
-        iconClass: 'fas fa-store',
+        name: '::Menu:settings',   
+        iconClass: 'fas fa-th',
         order: 4,
         //requiredPolicy: 'StoreManagement.View',
         layout: eLayoutType.application,
       },
       {
-        path: '/paymentmethodlist',
+        path: '/settings/paymentmethodlist',
         name: '::Menu:paymentmethodlist',
-        parentName: '::Menu:paymentmethod',
-        iconClass: 'fas fa-store',
+        parentName: '::Menu:settings',
+        iconClass: 'fas fa-credit-card',
         layout: eLayoutType.application,
       }
     ]);

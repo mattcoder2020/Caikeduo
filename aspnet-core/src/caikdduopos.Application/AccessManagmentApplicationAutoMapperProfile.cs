@@ -2,6 +2,7 @@
 using caikdduopos.Dto;
 using AutoMapper;
 using caikdduopos.Entity;
+using caikdduopos.Dto.Create;
 
 namespace caikdduopos;
 
@@ -14,8 +15,11 @@ public class AccessManagmentApplicationAutoMapperProfile : Profile
          * into multiple profile classes for a better organization. */
         CreateMap<Store, StoreDto>();
         CreateMap<CreateStoreDto, Store>();
+        //i want to map one source property to multiple destine properties
+        //CreateMap<Product, ProductDto>().ForMember(x => x.ProductTypeName, opt => opt.MapFrom(src => src.ProductType.Name));
         CreateMap<Product, ProductDto>();
-        CreateMap<ProductDto, Product>();
+        CreateMap<Product, CreateProductDto>();
+        CreateMap<CreateProductDto, Product>();
         CreateMap<ProductType, ProductTypeDto>();
         CreateMap<ProductTypeDto, ProductType>();
         CreateMap<Member, MemberDto>();
@@ -32,7 +36,8 @@ public class AccessManagmentApplicationAutoMapperProfile : Profile
         CreateMap<SalesType, SalesTypeDto>();
         CreateMap<SalesTypeDto, SalesType>();
 
-
+        CreateMap<PaymentMethod, PaymentMethodDto>();
+        CreateMap<PaymentMethodDto, PaymentMethod>();
 
 
 

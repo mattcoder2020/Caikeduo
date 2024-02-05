@@ -48,7 +48,7 @@
 </div>
   <div class="card-body">
     <ngx-datatable [rows]="stores.items" [count]="stores.totalCount" [list]="list" default>
-      <ngx-datatable-column [name]="'::storeid' | abpLocalization" prop="id"></ngx-datatable-column>
+      <!-- <ngx-datatable-column [name]="'::storeid' | abpLocalization" prop="id"></ngx-datatable-column> -->
       <ngx-datatable-column [name]="'::storename' | abpLocalization" prop="name">    </ngx-datatable-column>
       <ngx-datatable-column [name]="'::storefullname' | abpLocalization" prop="fullName">  </ngx-datatable-column>
       <ngx-datatable-column [name]="'::address' | abpLocalization" prop="address">  </ngx-datatable-column>
@@ -122,9 +122,15 @@
           <div class="mt-2">
               <label>{{ '::storestatus' | abpLocalization }}</label><span> * </span>
               <select class="form-control" id="status" formControlName="status">
-                 <option [ngValue]="type.value" *ngFor="let type of StatusTypes"> 
+                  <option 
+                  [ngValue]="type.value" *ngFor="let type of StatusTypes" 
+                 
+                 
+                   > 
                       {{ '::Enum:StoreStatus.' + type.value | abpLocalization }}
-                  </option>
+                      | {{type.value}} | {{this.selectedStore.status}}
+                  </option>            
+                
               </select>
           </div>
 

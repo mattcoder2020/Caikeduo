@@ -6,7 +6,7 @@ namespace caikdduopos.Dto
 {
     public class SalesRepDto : AuditedEntityDto<int>
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Name { get; set; }
     }
 }

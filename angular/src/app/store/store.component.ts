@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { StoreService } from '@proxy/caikdduopos/application-services/store.service';
 import { ListService, PagedResultDto } from '@abp/ng.core';
-import { StoreDto, StoreQueryDto } from '@proxy/caikdduopos/dto/models';
+import { StoreDto, StoreQueryDTO } from '@proxy/caikdduopos/dto/models';
+import { CreateStoreDto } from '@proxy/caikdduopos/dto/create/models';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ConfirmationService, Confirmation } from '@abp/ng.theme.shared'; 
 import { NgbDateNativeAdapter, NgbDateAdapter } from '@ng-bootstrap/ng-bootstrap';
@@ -22,7 +23,7 @@ export class StoreComponent implements OnInit{
   // add bookTypes as a list of BookType enum members
   StatusTypes = storeStatusOptions;
   selectedStore = {} as StoreDto;
-  queryDto = {} as StoreQueryDto;
+  queryDto = {} as StoreQueryDTO;
 
 
   isModalOpen = false;
@@ -56,11 +57,24 @@ export class StoreComponent implements OnInit{
       this.selectedStore= store;})
       this.selectedStore.status = 1; 
 
-    const request = this.storeService.update(this.selectedStore.id, this.storeService.covertStoreDto(this.selectedStore))
+    const request = this.storeService.update(this.selectedStore.id, this.covertStoreDto(this.selectedStore))
     request.subscribe(() => {
         this.list.get();
     });
   }
+
+  covertStoreDto = (storedto: StoreDto ) =>
+  {
+       let dto= {} as CreateStoreDto;
+       dto.address = storedto.address;
+       dto.creationDate = storedto.creationTime;
+       dto.fullName = storedto.fullName;
+       dto.name = storedto.name;
+       dto.phone = storedto.phone
+       dto.status = storedto.status;
+       return dto;
+
+  };
 
   deleteStore(id: string) {
     this.confirmation.warn('::AreYouSureToDelete', 'AbpAccount::AreYouSure').subscribe((status) => {
@@ -109,7 +123,7 @@ export class StoreComponent implements OnInit{
   }
 
   ResetQuery(){
-    this.queryDto = {} as StoreQueryDto;
+    this.queryDto = {} as StoreQueryDTO;
   }
 }
 

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text;
 using Volo.Abp.Application.Dtos;
 
-namespace caikdduopos.Dto
+namespace caikdduopos.Dto.Create
 {
     public class CreateStoreDto
     {
@@ -22,7 +22,7 @@ namespace caikdduopos.Dto
         public string Address { get; set; }
 
         [Required]
-        [StringLength (20)]
+        [StringLength(20)]
         public string Phone { get; set; }
 
         [Required]

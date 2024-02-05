@@ -1,0 +1,18 @@
+import type { StoreStatus } from '../../enums/store-status.enum';
+
+export interface CreateProductDto {
+  name?: string;
+  price: number;
+  cost: number;
+  description?: string;
+  productTypeId: number;
+}
+
+export interface CreateStoreDto {
+  name: string;
+  fullName: string;
+  address: string;
+  phone: string;
+  status: StoreStatus;
+  creationDate?: string;
+}
