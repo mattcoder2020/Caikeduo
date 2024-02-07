@@ -28,7 +28,7 @@ function configureRoutes(routesService: RoutesService) {
         path: '/storelist',
         name: '::Menu:storelist',
         parentName: '::Menu:stores',
-        iconClass: 'fas fa-store',
+        iconClass: 'fas fa-list-ul',
         layout: eLayoutType.application,
       }
       ,
@@ -44,7 +44,7 @@ function configureRoutes(routesService: RoutesService) {
         path: '/product/productlist',
         name: '::Menu:productlist',
         parentName: '::Menu:product',
-        iconClass: 'fas fa-store',
+        iconClass: 'fas fa-list-ul',
         layout: eLayoutType.application,
       }
       ,
@@ -52,7 +52,7 @@ function configureRoutes(routesService: RoutesService) {
         path: '/product/producttypelist',
         name: '::Menu:producttypelist',
         parentName: '::Menu:product',
-        iconClass: 'fas fa-store',
+        iconClass: 'fas fa-list-ul',
         layout: eLayoutType.application,
       }
       ,
@@ -66,9 +66,32 @@ function configureRoutes(routesService: RoutesService) {
       },
       {
         path: '/settings/paymentmethodlist',
-        name: '::Menu:paymentmethodlist',
+        name: '::Menu:paymentmethod',
         parentName: '::Menu:settings',
-        iconClass: 'fas fa-credit-card',
+        iconClass: 'fas fa-list-ul',
+        layout: eLayoutType.application,
+      },
+      {
+        path: '',
+        name: '::Menu:sales',   
+        iconClass: 'fas fa-money',
+        order: 4,
+        //requiredPolicy: 'StoreManagement.View',
+        layout: eLayoutType.application,
+      },
+      {
+        path: '/sales/saleslist',
+        name: '::Menu:saleslist',
+        parentName: '::Menu:sales',
+        iconClass: 'fas fa-list-ul',
+        layout: eLayoutType.application,
+      }
+      ,
+      {
+        path: '/sales/merchandisesaleslist',
+        name: '::Menu:merchandisesaleslist',
+        parentName: '::Menu:sales',
+        iconClass: 'fas fa-list-ul',
         layout: eLayoutType.application,
       }
     ]);

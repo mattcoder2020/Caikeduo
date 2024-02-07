@@ -17,8 +17,10 @@
     <div class="card-body">
       <ngx-datatable [rows]="PaymentMethods.items" [count]="PaymentMethods.totalCount" [list]="list" default>
         <!-- <ngx-datatable-column [name]="'::id' | abpLocalization" prop="id"></ngx-datatable-column> -->
-        <ngx-datatable-column [name]="'::name' | abpLocalization" prop="name">    </ngx-datatable-column>
-        <ngx-datatable-column [name]="'::description' | abpLocalization" prop="description">    </ngx-datatable-column>
+        <ngx-datatable-column [name]="'' | abpLocalization" prop="name">    </ngx-datatable-column>
+        <ngx-datatable-column [name]="'::Description' | abpLocalization" prop="description">    </ngx-datatable-column>
+        <ngx-datatable-column [name]="'::isdefault' | abpLocalization" prop="isDefault">    </ngx-datatable-column>
+
         <ngx-datatable-column [name]="'::Actions' | abpLocalization" [maxWidth]="250" [sortable]="false">
         <ng-template let-row="row" ngx-datatable-cell-template>
           <div class="btn-group mr-4" role="group">
@@ -63,9 +65,16 @@
                 <input type="text" id="name" class="form-control" formControlName="description" autofocus />
             </div>
             <div class="mt-2">
-                <label for="isDefault">{{ '::isDefault' | abpLocalization }}</label><span> * </span>
-                <input type="text" id="name" class="form-control" formControlName="isDefault" autofocus />
-            </div>
+              <label for="isDefault">{{ '::isDefault' | abpLocalization }}</label><span> * </span>
+
+             
+          </div>
+            <div class="mt-2 form-check form-switch ">
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckReverse" formControlName="isDefault" checked="false" (change)="onCheckboxChange($event)">
+               
+              </div>
+           
+            
   
             
                 

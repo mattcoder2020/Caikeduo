@@ -39,8 +39,9 @@ export class StoreComponent implements OnInit{
   }
 
   createStore() {
-    this.buildForm(); // add this line
     this.selectedStore = {} as StoreDto;
+    this.buildForm(); // add this line
+    
     this.isModalOpen = true;
   }
 
@@ -100,6 +101,7 @@ export class StoreComponent implements OnInit{
     if (this.form.invalid) {
       return;
     }
+    this.form.value.status = this.selectedStore.status;
     const request = this.selectedStore.id
     ? this.storeService.update(this.selectedStore.id, this.form.value)
     : this.storeService.create(this.form.value);
@@ -114,6 +116,11 @@ export class StoreComponent implements OnInit{
   onDateRangeChanged(event: { from: any, to: any }) {
     this.queryDto.creationDateFrom = event.from;
     this.queryDto.creationDateTo = event.to;
+  }
+
+  onselectionChanged(status: number)
+  {
+    this.selectedStore.status = status;
   }
   Query(){
     const request = this.storeService.queryByFiltrationByQ(this.queryDto);

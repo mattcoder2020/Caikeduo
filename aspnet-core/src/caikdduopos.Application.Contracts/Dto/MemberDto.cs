@@ -4,7 +4,7 @@ using Volo.Abp.Domain.Entities;
 
 namespace caikdduopos.Dto
 {
-    public class MemberDto : AuditedEntityDto<int>
+    public class MemberDto : EntityDto<int>
     {
         public int? Id { get; set; }
         public string Name { get; set; }

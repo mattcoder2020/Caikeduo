@@ -4,7 +4,7 @@ using Volo.Abp.Application.Dtos;
 
 namespace caikdduopos.Dto
 {
-    public class PaymentMethodDto : AuditedEntityDto<int>
+    public class PaymentMethodDto : EntityDto<int>
     {
         public int? Id { get; set; }
         public string Name { get; set; }

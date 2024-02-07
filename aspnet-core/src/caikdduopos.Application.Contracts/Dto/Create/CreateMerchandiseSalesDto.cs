@@ -5,16 +5,17 @@ using System.ComponentModel.DataAnnotations;
 using System.Text;
 using Volo.Abp.Application.Dtos;
 
-namespace caikdduopos.Dto
+namespace caikdduopos.Dto.Create
 {
-    public class CreateMerchandiseDto
+    public class CreateMerchandiseSalesDto
     {
         [Required]
         [StringLength(20)]
         public string Name { get; set; }
 
         [Required]
-        public SalesDto Sales { get; set; }
+        public CreateSalesDto Sales { get; set; }
+        public int SalesRepId { get; set; }
 
     }
 }

@@ -29,7 +29,9 @@ public class AccessManagmentApplicationAutoMapperProfile : Profile
         CreateMap<SalesRep, SalesRepDto>();
         CreateMap<SalesRepDto, SalesRep>();
         CreateMap<MerchandiseSales, MerchandiseSalesDto>();
-        CreateMap<MerchandiseSalesDto, MerchandiseSales>();
+        CreateMap<CreateMerchandiseSalesDto, MerchandiseSales>();
+        CreateMap<Sales, CreateSalesDto>();
+        CreateMap<CreateSalesDto, Sales>();
         CreateMap<Sales, SalesDto>();
         CreateMap<SalesDto, Sales>();
 

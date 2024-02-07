@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SettingsComponent } from './settings.component';
 import { PaymentmethodComponent } from './paymentmethod/paymentmethod.component';
 
-const routes: Routes = [{ path: 'paymentmethodlist', component: PaymentmethodComponent }, { path: '', component: SettingsComponent }];
+const routes: Routes = [{ path: 'paymentmethodlist', component: PaymentmethodComponent }]
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

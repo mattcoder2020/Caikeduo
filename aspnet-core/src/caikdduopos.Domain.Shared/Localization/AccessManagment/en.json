@@ -7,6 +7,7 @@
 
     "Menu:stores": "Stores",
     "Menu:storelist": "View Stores",
+
     "Actions": "Actions",
     "moreActions": "More Actions",
     "Close": "Close",
@@ -31,12 +32,12 @@
     "Enum:StoreStatus.0": "Opening",
     "Enum:StoreStatus.1": "Closed",
 
-    "Name": "Name",
+
+
+    "name": "Name",
     "fullname": "Full Name",
     "Price": "Price",
     "CreationTime": "Creation time",
-
-
 
     "find": "Find",
     "reset": "Reset",
@@ -44,10 +45,30 @@
     "StoreManagement": "Store Management",
     "StoreManagement.Creation": "Create",
     "StoreManagement.Edit": "Edit",
-    "StoreManagement.View": "View"
-   
+    "StoreManagement.View": "View",
 
+    "Menu:PaymentMethods": "Payment Methods",
 
+    "Menu:product": "Products",
+    "Menu:productlist": "View Products",
+    "Menu:producttypelist": "View Products Types",
+    "newPaymentMethod": "New Payment Method",
+    "description": "Description",
+    "isdefault": "Default Method",
+    "setdefault": "Set as Default",
+    "editPaymentMethod": "Modify Payment Method",
+    "Menu:producttypes": "Product Types",
+    "newproducttype": "New Product Type",
+    "newproduct": "Create Product",
+
+    "Menu:settings": "Configuration",
+    "Menu:paymentmethod": "View Payment Method",
+
+    "price": "Price",
+    "producttype": "Product Type",
+    "cost": "Cost",
+    "editproduct": "Edit Product",
+    "productname": "Prdouct Name"
   }
 }
 

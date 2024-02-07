@@ -121,14 +121,13 @@
 
           <div class="mt-2">
               <label>{{ '::storestatus' | abpLocalization }}</label><span> * </span>
-              <select class="form-control" id="status" formControlName="status">
-                  <option 
-                  [ngValue]="type.value" *ngFor="let type of StatusTypes" 
-                 
-                 
+              <select class="form-control" id="status"  (change)="onselectionChanged($event.target.value)">
+          
+                  <option [ngValue]="type.value" *ngFor="let type of StatusTypes"              
+                    [selected]="type.value === this.selectedStore.status"
                    > 
                       {{ '::Enum:StoreStatus.' + type.value | abpLocalization }}
-                      | {{type.value}} | {{this.selectedStore.status}}
+                   
                   </option>            
                 
               </select>

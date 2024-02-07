@@ -72,6 +72,10 @@ export class PaymentmethodComponent implements OnInit{
               });
   }
 
+
+  onCheckboxChange(event: any) {
+    this.selectedPaymentMethod.isDefault = event.target.checked;
+  }
   navigatetoproduct()
   {
     this.router.navigate(['/product/productlist']);

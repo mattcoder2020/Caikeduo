@@ -1,5 +1,4 @@
-import type { AuditedEntityDto } from '@abp/ng.core';
-import type { CreateProductDto } from './create/models';
+import type { AuditedEntityDto, EntityDto } from '@abp/ng.core';
 import type { StoreStatus } from '../enums/store-status.enum';
 
 export interface CashierDto extends AuditedEntityDto<number> {
@@ -7,12 +6,7 @@ export interface CashierDto extends AuditedEntityDto<number> {
   name?: string;
 }
 
-export interface CreateMerchandiseDto {
-  name: string;
-  sales: SalesDto;
-}
-
-export interface MemberDto extends AuditedEntityDto<number> {
+export interface MemberDto extends EntityDto<number> {
   id?: number;
   name?: string;
   password?: string;
@@ -23,15 +17,13 @@ export interface MemberDto extends AuditedEntityDto<number> {
   expiryDate: any;
 }
 
-export interface MerchandiseSalesDto extends AuditedEntityDto<string> {
+export interface MerchandiseSalesDto extends EntityDto<string> {
   salesId?: string;
-  cashier: CashierDto;
   salesRep: SalesRepDto;
-  product: CreateProductDto;
   sales: SalesDto;
 }
 
-export interface PaymentMethodDto extends AuditedEntityDto<number> {
+export interface PaymentMethodDto extends EntityDto<number> {
   id?: number;
   name?: string;
   description?: string;
@@ -52,15 +44,14 @@ export interface ProductTypeDto extends AuditedEntityDto<number> {
   name?: string;
 }
 
-export interface SalesDto extends AuditedEntityDto<string> {
-  id?: string;
+export interface SalesDto {
   amount: number;
   member: MemberDto;
   salesType: SalesTypeDto;
   paymentMethod: PaymentMethodDto;
-  salesTypeId: number;
-  paymentMethodId: number;
-  memberId: number;
+  product: ProductDto;
+  quantity: number;
+  discount: number;
 }
 
 export interface SalesRepDto extends AuditedEntityDto<number> {
