@@ -92,7 +92,7 @@ export class StoreComponent implements OnInit{
       fullname: [this.selectedStore.fullName||null, Validators.required],
       phone: [this.selectedStore.phone||null, Validators.required],
       address: [this.selectedStore.address||null, Validators.required],
-      status:[this.selectedStore.status||null, Validators.required]
+      status:[this.selectedStore.status||1, Validators.required]
     });
   }
 

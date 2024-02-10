@@ -7,7 +7,8 @@ import { NgbDateNativeAdapter, NgbDateAdapter } from '@ng-bootstrap/ng-bootstrap
 import { storeStatusOptions } from '@proxy/caikdduopos/enums';
 import { NgbdDatepickerRangePopup} from '../shared/date-picker/date-picker.component';
 import { Router } from '@angular/router';
-import { PaymentMethodDto } from '@proxy/caikdduopos/dto';
+import { PaymentMethodDto, SalesOverViewDto } from '@proxy/caikdduopos/dto';
+import { SalesService } from '@proxy/caikdduopos/application-services';
 
 @Component({
   selector: 'app-sales',
@@ -16,7 +17,7 @@ import { PaymentMethodDto } from '@proxy/caikdduopos/dto';
   providers: [ListService, { provide: NgbDateAdapter, useClass: NgbDateNativeAdapter }]
 })
 export class SalesComponent implements OnInit{
-  PaymentMethods = { items: [], totalCount: 0 } as PagedResultDto<PaymentMethodDto>;
+  Saleoverviews : SalesOverViewDto[] = [];
   form: FormGroup; // add this line
 
   selectedPaymentMethod = {} as PaymentMethodDto;
@@ -25,7 +26,7 @@ export class SalesComponent implements OnInit{
 
   isModalOpen = false;
   constructor(public readonly list: ListService, 
-    private PaymentMethodService: PaymentMethodService,
+    private SaleService: SalesService,
     private fb: FormBuilder, 
     private confirmation: ConfirmationService,
     private router: Router) 
@@ -33,70 +34,9 @@ export class SalesComponent implements OnInit{
 
   ngOnInit() {
 
-    const PaymentMethodStreamCreator = (query) => this.PaymentMethodService.getList(query);
-
-    this.list.hookToQuery(PaymentMethodStreamCreator).subscribe((response) => {
-      this.PaymentMethods = response;
+    this.SaleService.getSalesOverView().subscribe((response) => {
+      this.Saleoverviews = response;
     });
-  }
-
-  create() {
-    this.selectedPaymentMethod = {} as PaymentMethodDto;
-    this.buildForm(); // add this line
-    this.isModalOpen = true;
-  }
-
-  edit(id: number) {
-    this.PaymentMethodService.get(id).subscribe((Product) => {
-      this.selectedPaymentMethod= Product;
-      this.buildForm();
-      this.isModalOpen = true;
-    });
-  }
-
-   delete(id: number) {
-    this.confirmation.warn('::AreYouSureToDelete', 'AbpAccount::AreYouSure').subscribe((status) => {
-      if (status === Confirmation.Status.confirm) {
-        this.PaymentMethodService.delete(id).subscribe(() => this.list.get());
-      }
-    });
-  }
-
-  // add buildForm method
-  buildForm() {
-    this.form = this.fb.group({
-      id: [this.selectedPaymentMethod.id|| null],
-      name: [this.selectedPaymentMethod.name|| null, Validators.required],
-      description: [this.selectedPaymentMethod.description|| null, Validators.required],
-      isDefault: [this.selectedPaymentMethod.isDefault|| null, Validators.required]   
-              });
-  }
-
-
-  onCheckboxChange(event: any) {
-    this.selectedPaymentMethod.isDefault = event.target.checked;
-  }
-  navigatetoproduct()
-  {
-    this.router.navigate(['/product/productlist']);
-    //add code to nagivate to productlist route
-
-  }
-  // add save method
-  save() {
-    if (this.form.invalid) {
-      return;
-    }
-    const request = this.selectedPaymentMethod.id
-    ? this.PaymentMethodService.update(this.selectedPaymentMethod.id, this.form.value)
-    : this.PaymentMethodService.create(this.form.value);
-
-    request.subscribe(() => {
-    this.isModalOpen = false;
-    this.form.reset();
-    this.list.get();
-    });
-   
   }
 
 

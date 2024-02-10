@@ -4,12 +4,14 @@ import { SalesRoutingModule } from './sales-routing.module';
 import { SalesComponent } from './sales.component';
 import { SharedModule } from '../shared/shared.module';
 import { MerchandisesalesComponent } from './merchandisesales/merchandisesales.component';
+import { WholesalesComponent } from './wholesales/wholesales.component';
 
 
 @NgModule({
   declarations: [
     SalesComponent,
-    MerchandisesalesComponent
+    MerchandisesalesComponent,
+    WholesalesComponent
   ],
   imports: [
     CommonModule,

@@ -1,9 +1,9 @@
 import type { StoreStatus } from '../../enums/store-status.enum';
 
 export interface CreateMerchandiseSalesDto {
-  name: string;
   sales: CreateSalesDto;
   salesRepId: number;
+  salesId?: string;
 }
 
 export interface CreateProductDto {
@@ -15,6 +15,7 @@ export interface CreateProductDto {
 }
 
 export interface CreateSalesDto {
+  id?: string;
   amount: number;
   quantity: number;
   discount: number;
@@ -31,4 +32,11 @@ export interface CreateStoreDto {
   phone: string;
   status: StoreStatus;
   creationDate?: string;
+}
+
+export interface CreateWholeSalesDto {
+  sales: CreateSalesDto;
+  salesId?: string;
+  deliveryAddress?: string;
+  deliveryMethod?: string;
 }

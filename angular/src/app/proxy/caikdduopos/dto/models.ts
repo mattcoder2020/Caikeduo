@@ -44,7 +44,7 @@ export interface ProductTypeDto extends AuditedEntityDto<number> {
   name?: string;
 }
 
-export interface SalesDto {
+export interface SalesDto extends EntityDto<string> {
   amount: number;
   member: MemberDto;
   salesType: SalesTypeDto;
@@ -52,6 +52,17 @@ export interface SalesDto {
   product: ProductDto;
   quantity: number;
   discount: number;
+}
+
+export interface SalesOverViewDto {
+  salesType?: string;
+  totalSales: number;
+  totalOrder: number;
+  averageAmount: number;
+  salesByUnionPay: number;
+  salesByWeChat: number;
+  salesByAliPay: number;
+  salesByCash: number;
 }
 
 export interface SalesRepDto extends AuditedEntityDto<number> {
@@ -79,4 +90,10 @@ export interface StoreQueryDTO {
   name?: string;
   creationDateFrom?: string;
   creationDateTo?: string;
+}
+
+export interface WholeSalesDto extends EntityDto<string> {
+  deliveryAddress?: string;
+  deliveryMethod?: string;
+  sales: SalesDto;
 }
