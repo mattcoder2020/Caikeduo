@@ -32,7 +32,7 @@ namespace caikdduopos.ApplicationSeedContributors
                },
                new SalesType
                {
-                Name = "Credit"
+                Name = "WholeSale"
                },
                new SalesType
                {

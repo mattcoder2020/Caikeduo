@@ -63,6 +63,7 @@ public class AccessManagmentDbContext :
     public DbSet<SalesRep> SalesReps { get; set; }
     public DbSet<SalesType> SalesTypes { get; set; }
     public DbSet<MerchandiseSales> MerchandiseSales { get; set; }
+    public DbSet<WholeSales> WholeSales { get; set; }
     public DbSet<Member> Members { get; set; }
     public DbSet<PaymentMethod> PaymentMethods { get; set; }
     public DbSet<Product> Products { get; set; }

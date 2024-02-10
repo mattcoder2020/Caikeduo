@@ -7,12 +7,13 @@ using Volo.Abp.Application.Dtos;
 
 namespace caikdduopos.Dto.Create
 {
-    public class CreateMerchandiseSalesDto
+    public class CreateWholeSalesDto
     {
-        [Required]
         public CreateSalesDto Sales { get; set; }
-        public int SalesRepId { get; set; }
-        public Guid SalesId { get; set;}
+        public Guid SalesId { get; set; }
+        public String DeliveryAddress { get; set; }
+        public String DeliveryMethod { get; set; }
+
 
     }
 }

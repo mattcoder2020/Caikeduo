@@ -3,12 +3,11 @@ using System;
 
 namespace caikdduopos.Entity
 {
-    public class MerchandiseSales : Entity<Guid>
+    public class WholeSales : Entity<Guid>
     {
         public Sales Sales { get; set; }
-        public SalesRep SalesRep { get; set; }
-        public int SalesRepId { get; set; }
-        public Guid SalesId { get; set; }
+        public String DeliveryAddress { get; set; }
+        public String DeliveryMethod { get; set; }
        
 
         //public Guid CashierId { get; set; }

@@ -5,7 +5,7 @@ namespace caikdduopos.Dto.Create
 {
     public class CreateSalesDto 
     {
-     
+        public Guid Id { get; set; }
         public decimal Amount { get; set; }
         public int Quantity { get; set; }
         public decimal Discount { get; set; }

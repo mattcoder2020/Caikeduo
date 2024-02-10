@@ -68,7 +68,26 @@
     "producttype": "Product Type",
     "cost": "Cost",
     "editproduct": "Edit Product",
-    "productname": "Prdouct Name"
+    "productname": "Prdouct Name",
+
+    "Menu:sales": "Sales Order",
+
+    "Menu:merchandisesaleslist": "Retail Order",
+    "newMerchandiseSales": "New Retail Order",
+
+    "Menu:wholesaleslist": "Wholesales Order",
+    "salestotalamount": "Total Amount",
+    "salestotalorder": "Total Order",
+    "averagesalestotalorder": "Average",
+    "salesbycash": "Paid by Cash",
+    "salesbyunionpay": "Paid by UnionPay",
+    "salesbywechat": "Paid by WechatPay",
+    "salesbyalipay": "Paid by Alipay",
+    "Menu:salesoverview": "Sales Overview",
+    "overview": "Overview",
+    "retailsales": "Retail Sales",
+    "wholesales": "Wholesale"
+
   }
 }
 
