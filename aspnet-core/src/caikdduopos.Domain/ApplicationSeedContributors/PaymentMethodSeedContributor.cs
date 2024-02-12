@@ -30,19 +30,23 @@ namespace caikdduopos.ApplicationSeedContributors
             {
                new PaymentMethod
                {
-                Name = "Cash"
+                Name = "Cash",
+                Description ="PayByCash"
                },
                new PaymentMethod
                {
-                Name = "UnionPay"
+                Name = "UnionPay",
+                     Description ="PayByUnionPay"
                },
                new PaymentMethod
                {
-                Name = "WechatPay"
+                Name = "WechatPay",
+                     Description ="PayByCash"
                },
                new PaymentMethod
                {
-                Name = "Alipay"
+                Name = "Alipay",
+                     Description ="PayByCash"
                }
 
            
