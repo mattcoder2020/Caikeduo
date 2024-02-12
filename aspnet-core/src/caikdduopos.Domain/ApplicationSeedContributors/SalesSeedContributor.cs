@@ -8,7 +8,7 @@ using Volo.Abp.Domain.Repositories;
 
 namespace caikdduopos.ApplicationSeedContributors
 {
-    public class SalesSeedContributor : IDataSeedContributor, ITransientDependency
+    public class SalesSeedContributor //: IDataSeedContributor, ITransientDependency
     {
         private readonly IRepository<MerchandiseSales, Guid> _mrepository;
         private readonly IRepository<WholeSales, Guid> _wrepository;
@@ -22,6 +22,7 @@ namespace caikdduopos.ApplicationSeedContributors
 
         public async Task SeedAsync(DataSeedContext context)
         {
+            
             //Check if the Store table is already populated
             if (await _mrepository.GetCountAsync() == 0)
             {
@@ -68,7 +69,7 @@ namespace caikdduopos.ApplicationSeedContributors
                },
             };
 
-                await _mrepository.InsertManyAsync(MerchandiseSales, autoSave: true);
+                await _mrepository.InsertManyAsync(MerchandiseSales, autoSave: false);
             }
 
             // Seed initial data for the Store aggregate root
