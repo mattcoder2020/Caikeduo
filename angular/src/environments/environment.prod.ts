@@ -1,25 +1,25 @@
 import { Environment } from '@abp/ng.core';
 
-const baseUrl = 'https://172.17.0.1:4200';
+const baseUrl = 'https://localhost:44357';
 
 export const environment = {
-  production: true,
+  production: false,
   application: {
     baseUrl,
-    name: 'AccessManagment',
+    name: 'Caikeduo',
     logoUrl: '',
   },
   oAuthConfig: {
-    issuer: 'http://172.17.0.1:44357/',
+    issuer: 'https://localhost:44357/',
     redirectUri: baseUrl,
-    clientId: 'AccessManagment_App',
+    clientId: 'Caikeduo',
     responseType: 'code',
     scope: 'offline_access AccessManagment',
-    requireHttps: true
+    requireHttps: true,
   },
   apis: {
     default: {
-      url: 'backend',
+      url: '',
       rootNamespace: 'AbpSampleApp.AccessManagment',
     },
   },

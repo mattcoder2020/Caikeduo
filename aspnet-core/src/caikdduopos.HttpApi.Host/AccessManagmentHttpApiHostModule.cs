@@ -218,6 +218,12 @@ public class AccessManagmentHttpApiHostModule : AbpModule
 
         app.UseUnitOfWork();
         app.UseAuthorization();
+        //add failover to index.html
+        app.UseEndpoints(endpoints =>
+        {
+            //endpoints.MapControllers();
+            endpoints.MapFallbackToController("Index", "Fallback");
+        });
 
         app.UseSwagger();
         app.UseAbpSwaggerUI(c =>
