@@ -10,7 +10,7 @@ export const environment = {
     logoUrl: '',
   },
   oAuthConfig: {
-    issuer: 'https://localhost:44357/',
+    issuer: 'https://119.23.216.60:44357/',
     redirectUri: baseUrl,
     clientId: 'AccessManagment_Web',
     responseType: 'code',
