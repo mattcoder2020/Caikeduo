@@ -19,7 +19,7 @@ export const environment = {
   },
   apis: {
     default: {
-      url: '',
+      url: 'https://119.23.216.60:44357/',
       rootNamespace: 'AbpSampleApp.AccessManagment',
     },
   },
