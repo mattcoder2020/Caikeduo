@@ -24,8 +24,8 @@
             //"proxyConfig": "proxy.conf.json",
  
 
-            //"outputPath": "../WebTier/Caikeduo.Web/wwwroot",
-            "outputPath": "../aspnet-core/src/caikdduopos.HttpApi.Host/wwwroot",
+            "outputPath": "../WebTier/Caikeduo.Web/wwwroot",
+            //"outputPath": "../aspnet-core/src/caikdduopos.HttpApi.Host/wwwroot",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
