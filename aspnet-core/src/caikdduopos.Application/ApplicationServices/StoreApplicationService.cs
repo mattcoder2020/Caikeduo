@@ -18,7 +18,7 @@ using Volo.Abp.Linq;
 
 namespace caikdduopos.ApplicationServices
 {
-    [Authorize(AccessManagmentPermissions.StoreGroupName + ".Creation")]
+    //[Authorize(AccessManagmentPermissions.StoreGroupName + ".Creation")]
     public class StoreApplicationService:CrudAppService<
         Store,
         StoreDto,

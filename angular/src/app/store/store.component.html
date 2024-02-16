@@ -7,7 +7,10 @@
         </h5>
       </div>
       <div id="2div" class="col-6 d-flex justify-content-end"> 
-        <button *abpPermission="'StoreManagement.Creation'" id="create" class="btn btn-primary" type="button" (click)="createStore()">
+        
+        <!-- *abpPermission="'StoreManagement.Creation'"  -->
+        <button 
+        id="create" class="btn btn-primary" type="button" (click)="createStore()">
           <i class="fa fa-plus me-1"></i>
           <span>{{ '::newstore' | abpLocalization }}</span>
         </button>
