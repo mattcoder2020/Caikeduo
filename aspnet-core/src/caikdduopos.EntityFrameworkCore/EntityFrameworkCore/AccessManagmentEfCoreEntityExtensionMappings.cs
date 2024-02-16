@@ -31,25 +31,27 @@ public static class AccessManagmentEfCoreEntityExtensionMappings
              * https://docs.abp.io/en/abp/latest/Customizing-Application-Modules-Extending-Entities
              */
 
-            ObjectExtensionManager.Instance
-                         .MapEfCoreProperty<IdentityUser, string>(
-                             User.UserConsts.WechatOpenIdPropertyName,
-                             (_, propertyBuilder) =>
-                             {
-                                 propertyBuilder.HasDefaultValue("");
-                                 propertyBuilder.HasMaxLength(User.UserConsts.MaxWechatOpenIdLength);
-                             }
-                         )
-                         .MapEfCoreProperty<IdentityUser, string>(
-                             User.UserConsts.AliasPropertyName,
-                             (_, propertyBuilder) =>
-                             {
-                                 propertyBuilder.HasMaxLength(User.UserConsts.MaxAliasLength);
-                             }
-                         );
+            //ObjectExtensionManager.Instance
+            //             .MapEfCoreProperty<IdentityUser, string>(
+            //                 //User.UserConsts.WechatOpenIdPropertyName,
+            //                 (_, propertyBuilder) =>
+            //                 {
+            //                     propertyBuilder.HasDefaultValue("");
+            //                     propertyBuilder.HasMaxLength(User.UserConsts.MaxWechatOpenIdLength);
+            //                 }
+            //             )
+            //             .MapEfCoreProperty<IdentityUser, string>(
+            //                 User.UserConsts.AliasPropertyName,
+            //                 (_, propertyBuilder) =>
+            //                 {
+            //                     propertyBuilder.HasMaxLength(User.UserConsts.MaxAliasLength);
+            //                 }
+            //             );
 
            
-            });
+            //
+            }
+        );
 
 
         

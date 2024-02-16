@@ -9,8 +9,8 @@ namespace caikdduopos.AggregateRoots
 {
     public class User: AuditedAggregateRoot<User>
     {
-        public string WechatOpenId { get;  set; }
-        public string Alias { get; set; }
+        //public string WechatOpenId { get;  set; }
+        //public string Alias { get; set; }
     }
 
 

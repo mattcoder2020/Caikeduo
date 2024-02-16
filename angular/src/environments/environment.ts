@@ -10,7 +10,7 @@ export const environment = {
     logoUrl: '',
   },
   oAuthConfig: {
-    issuer: 'https://localhost:44357/',
+    issuer: 'http://localhost:44357/',
     redirectUri: baseUrl,
     clientId: 'AccessManagment_App',
     responseType: 'code',
@@ -19,7 +19,7 @@ export const environment = {
   },
   apis: {
     default: {
-      url: 'https://localhost:44357',
+      url: 'http://localhost:44357',
       rootNamespace: 'AbpSampleApp.AccessManagment',
     },
   },

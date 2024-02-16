@@ -5,31 +5,31 @@
     "Welcome": "欢迎",
     "LongWelcomeMessage": "欢迎来到该应用程序. 这是一个基于ABP框架的启动项目. 有关更多信息, 请访问 abp.io.",
 
-    "Menu:stores": "門店管理",
-    "Menu:storelist": "所有門店",
+    "Menu:stores": "门店管理",
+    "Menu:storelist": "门店列表",
     "Actions": "操作",
     "moreActions": "更多操作",
-    "Close": "關閉",
+    "Close": "关闭",
     "Delete": "刪除",
-    "Edit": "編輯",
-    "creationDate": "創建日期",
+    "Edit": "编辑",
+    "creationDate": "创建日期",
     "AreYouSure": "你确认此操作?",
     "AreYouSureToDelete": "确认删除?",
 
     "newstore": "新增门店",
     "editstore": "修改门店",
-    "storeid": "門店編碼",
-    "storestatus": "狀態",
-    "storename": "商戶簡稱",
-    "storefullname": "商戶全稱",
+    "storeid": "门店编码",
+    "storestatus": "状态",
+    "storename": "商户简称",
+    "storefullname": "商户全称",
     "storesuspend": "停用",
     "paymentconfig": "支付配置",
     "staffmanage": "店員管理",
     "passwordreset": "重置密碼",
     "address": "地址",
     "phone": "電話",
-    "Enum:StoreStatus.0": "營業中",
-    "Enum:StoreStatus.1": "已關閉",
+    "Enum:StoreStatus.0": "营业中",
+    "Enum:StoreStatus.1": "已关闭",
 
     "Name": "名称",
     "fullname": "全称",
@@ -42,7 +42,25 @@
     "StoreManagement": "门店管理",
     "StoreManagement.Creation": "创建",
     "StoreManagement.Edit": "编辑",
-    "StoreManagement.View": "查看"
+    "StoreManagement.View": "查看",
+
+    "Menu:PaymentMethods": "支付方式",
+
+    "Menu:product": "产品",
+    "Menu:productlist": "产品列表",
+    "Menu:producttypelist": "产品类型列表",
+    "newPaymentMethod": "创建支付方式",
+    "description": "描述",
+    "isdefault": "默认方式",
+    "setdefault": "设为默认",
+    "editPaymentMethod": "编辑支付方式",
+    "Menu:producttypes": "产品类型",
+    "newproducttype": "创建产品类型",
+    "newproduct": "创建产品",
+
+    "Menu:settings": "配置",
+    "Menu:paymentmethod": "支付方式列表"
+
 
 
   }
